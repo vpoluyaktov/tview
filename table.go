@@ -747,6 +747,14 @@ func (t *Table) GetRowCount() int {
 	return t.content.GetRowCount()
 }
 
+// GetColumnWidth returns the column width
+func (t *Table) GetColumnWidth(column int) int {
+	if column > len(t.visibleColumnWidths)-1 {
+		return 0
+	}
+	return t.visibleColumnWidths[column]
+}
+
 // GetColumnCount returns the (maximum) number of columns in the table.
 func (t *Table) GetColumnCount() int {
 	return t.content.GetColumnCount()
